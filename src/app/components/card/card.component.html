@@ -1,6 +1,11 @@
 <div *ngIf="pluto" class="container">
-<app-data-card [pluto] = "pluto"></app-data-card>
-<app-address-data *ngIf="pluto.address" [address] = "pluto.address"></app-address-data>
-<app-company-data *ngIf="pluto.company" [company] = "pluto.company"></app-company-data>
-<app-post-container></app-post-container>
+    <div class="first-card">
+        <app-data-card [pluto] = "pluto"></app-data-card>
+        <div class="info-cards">
+            <app-address-data *ngIf="pluto.address" [address] = "pluto.address"></app-address-data>
+            <app-company-data *ngIf="pluto.company" [company] = "pluto.company"></app-company-data>
+        </div>
+    </div>
+
+    <app-post-container></app-post-container>
 </div>
