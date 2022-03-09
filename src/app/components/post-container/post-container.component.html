@@ -1,3 +1,4 @@
 <div class="container">
-    <app-post-detail></app-post-detail>
+    <button (click)="getPosts()">LoadPosts</button>
+    <app-post-detail *ngFor="let post of posts" [post] = "post"></app-post-detail>
 </div>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { Post } from '../model/post';
 import { User } from '../model/user';
 
 @Injectable({
@@ -35,8 +36,14 @@ export class ConnectionService {
     return usersArray;
   }
 
-  getPosts(id:number): Observable<User[]>{
-    return this.http.get<User[]>('https://jsonplaceholder.typicode.com/posts?userId=' + id);
+  getPosts(id:number): Observable<Post[]>{
+    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts?userId=' + id).pipe(map(this.log2));
+  }
+
+  
+  log2(usersArray: Post[]){
+    console.log("ciao",usersArray.length);
+    return usersArray;
   }
  
 }
